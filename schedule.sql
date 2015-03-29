@@ -5,3 +5,16 @@ CREATE TABLE schedule(
     sche_end DATE CONSTRAINT sche_sche_end_cnst NOT NULL,
     CONSTRAINT emp_id_fk FOREIGN KEY (emp_id) REFERENCES employee(emp_id) DEFERRABLE INITIALLY IMMEDIATE
 );
+
+-- Autoincrement primary key
+-- If a value for the primary key is unspecified, it will be set to the next number in the sequence.
+CREATE SEQUENCE schedule_seq;
+CREATE TRIGGER schedule_trig
+BEFORE INSERT ON schedule
+FOR EACH ROW
+BEGIN
+      SELECT schedule_seq.NEXTVAL
+      INTO :new.sche_id
+      FROM dual;
+END;
+/

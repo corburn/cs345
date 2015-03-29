@@ -5,3 +5,16 @@ CREATE TABLE customer(
     cus_lname VARCHAR(255) CONSTRAINT cus_lname_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
     cus_email VARCHAR(255) CONSTRAINT cus_email_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE CONSTRAINT cus_email_uq_cnst UNIQUE DEFERRABLE INITIALLY IMMEDIATE
 );
+
+-- Autoincrement primary key
+-- If a value for the primary key is unspecified, it will be set to the next number in the sequence.
+CREATE SEQUENCE customer_seq;
+CREATE TRIGGER customer_trig
+BEFORE INSERT ON customer
+FOR EACH ROW
+BEGIN
+      SELECT customer_seq.NEXTVAL
+      INTO :new.cus_id
+      FROM dual;
+END;
+/

@@ -7,3 +7,16 @@ CREATE TABLE restaurant(
     res_phone VARCHAR(255) CONSTRAINT res_phone_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
     res_instructions VARCHAR(255) CONSTRAINT res_instructions_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE
 );
+
+-- Autoincrement primary key
+-- If a value for the primary key is unspecified, it will be set to the next number in the sequence.
+CREATE SEQUENCE restaurant_seq;
+CREATE TRIGGER restaurant_trig
+BEFORE INSERT ON restaurant
+FOR EACH ROW
+BEGIN
+      SELECT restaurant_seq.NEXTVAL
+      INTO :new.res_id
+      FROM dual;
+END;
+/
