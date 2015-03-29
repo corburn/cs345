@@ -20,9 +20,12 @@ SPOOL cs345project4.txt
 @drop_schedule
 @drop_employee
 @drop_restaurant
+-- customer_location references customer
+@drop_customer_location
 @drop_customer
 
 @customer
+@customer_location
 @restaurant
 @employee
 @schedule
