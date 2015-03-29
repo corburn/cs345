@@ -2,7 +2,7 @@
 -- database to a "clean" state.
 --
 -- To run the script `cd` into the same folder as the script and run:
--- sqlplus username@tund.cefns.nau.edu @reset
+-- sqlplus username@seed/tund.cefns.nau.edu @seed/reset
 --
 -- This will run the script as soon as you log in.
 --
@@ -15,20 +15,20 @@ SPOOL cs345project4.txt
 -- Tables with foreign keys must be dropped before the tables they reference.
 -- Drop tables in the opposite order they are created.
 -- vehicle references employee
-@drop_vehicle
+@seed/drop_vehicle
 -- schedule reference employee
-@drop_schedule
-@drop_employee
-@drop_restaurant
+@seed/drop_schedule
+@seed/drop_employee
+@seed/drop_restaurant
 -- customer_location references customer
-@drop_customer_location
-@drop_customer
+@seed/drop_customer_location
+@seed/seed/drop_customer
 
-@customer
-@customer_location
-@restaurant
-@employee
-@schedule
-@vehicle
+@seed/customer
+@seed/customer_location
+@seed/restaurant
+@seed/employee
+@seed/schedule
+@seed/vehicle
 
 SPOOL OFF
