@@ -15,7 +15,7 @@ The _table_name_ .sql scripts create the table, sequences, and triggers as well 
 
 TODO:
 - [ ] A written overview of the system and how it works (the business process).
-- [ ] Data dictionaries including data types and constriants for each field.
+- [ ] Data dictionaries including data types and constraints for each field.
 - [ ] Complete relationships for each entity (1:m, mandatory, optional, weak, strong, etc).
 - [ ] A written overview/user guide describing how to use the system (update/insert/delete from each table/view) along with example queries and result sets.
 - [ ] A detailed description for each function/procedure
