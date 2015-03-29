@@ -13,7 +13,13 @@ SET ECHO ON;
 SPOOL cs345project4.txt
 
 -- Tables with foreign keys must be dropped before the tables they reference.
--- Drop tables in the opposite order they are created.
+-- Drop tables in the opposite request they are created.
+--request_item references menu_item and order
+@seed/drop_request_item
+-- menu_item references restaurant
+@seed/drop_menu_item
+-- request references employee and customer_location
+@seed/drop_request
 -- vehicle references employee
 @seed/drop_vehicle
 -- schedule reference employee
@@ -22,7 +28,7 @@ SPOOL cs345project4.txt
 @seed/drop_restaurant
 -- customer_location references customer
 @seed/drop_customer_location
-@seed/seed/drop_customer
+@seed/drop_customer
 
 @seed/customer
 @seed/customer_location
@@ -30,5 +36,9 @@ SPOOL cs345project4.txt
 @seed/employee
 @seed/schedule
 @seed/vehicle
+@seed/request
+@seed/menu_item
+@seed/request_item
+
 
 SPOOL OFF
