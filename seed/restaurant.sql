@@ -5,7 +5,7 @@ CREATE TABLE restaurant(
     res_add_2 VARCHAR(255),
     res_zip VARCHAR(255) CONSTRAINT res_zip_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
     res_phone VARCHAR(255) CONSTRAINT res_phone_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
-    res_instructions VARCHAR(255) CONSTRAINT res_instructions_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE
+    res_instructions VARCHAR(255)
 );
 
 -- Autoincrement primary key
@@ -20,3 +20,13 @@ BEGIN
       FROM dual;
 END;
 /
+
+INSERT INTO restaurant (res_name, res_add_1, res_add_2, res_zip, res_phone, res_instructions)
+VALUES ('Freddy Fazbear''s Pizza', '3345 S. Jump St.', 'Suite #11', '45221', '4502263154', 
+        'Farthest right location at the strip mall');
+
+INSERT INTO restaurant (res_name, res_add_1, res_add_2, res_zip, res_phone, res_instructions)
+VALUES ('Pizza Planet', '122 N. Toy Ave.', Null, '45221', '4505452221', Null);
+
+INSERT INTO restaurant (res_name, res_add_1, res_add_2, res_zip, res_phone, res_instructions)
+VALUES ('Krusty Burger', '1990 W. Homer St.', Null, '45221', '4508963214', Null);
