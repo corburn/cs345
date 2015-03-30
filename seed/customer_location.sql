@@ -6,7 +6,7 @@ CREATE TABLE customer_location(
     cus_loc_zip VARCHAR(255) CONSTRAINT cus_loc_zip_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
     cus_loc_phone VARCHAR(255) CONSTRAINT cus_loc_phone_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
     cus_instructions VARCHAR(255),
-    CONSTRAINT cus_loc_cus_id_fk FOREIGN KEY (cus_id) REFERENCES customer(cus_id) DEFERRABLE INITIALLY IMMEDIATE
+    CONSTRAINT cus_loc_cus_id_fk FOREIGN KEY(cus_id) REFERENCES customer(cus_id)
 );
 
 -- Autoincrement primary key
@@ -17,7 +17,7 @@ BEFORE INSERT ON customer_location
 FOR EACH ROW
 BEGIN
       SELECT customer_location_seq.NEXTVAL
-      INTO :new.cus_id
+      INTO :new.cus_loc_id
       FROM dual;
 END;
 /

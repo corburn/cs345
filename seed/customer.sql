@@ -18,3 +18,12 @@ BEGIN
       FROM dual;
 END;
 /
+
+INSERT INTO customer(cus_phone, cus_fname, cus_lname, cus_email)
+VALUES ('9285559876', 'Hank', 'Williams', 'hank.williams@email.com');
+
+INSERT INTO customer(cus_phone, cus_fname, cus_lname, cus_email)
+VALUES ('9285559991', 'Bob', 'Boolean', 'truefalse@bool.org');
+
+INSERT INTO customer(cus_phone, cus_fname, cus_lname, cus_email)
+VALUES ('9285551298', 'Suzy', 'Smith', 'suzy@email.com');
