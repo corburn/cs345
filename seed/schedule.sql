@@ -18,3 +18,9 @@ BEGIN
       FROM dual;
 END;
 /
+
+INSERT ALL
+INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (1, 1, '2015-03-29 08:00', '2015-03-29 12:00')
+INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (2, 1, '2015-03-29 13:00', '2015-03-29 17:00')
+INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (3, 1, '2015-03-29 08:00', '2015-03-29 12:00')
+SELECT 1 FROM dual;
