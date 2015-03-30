@@ -18,3 +18,16 @@ BEGIN
       FROM dual;
 END;
 /
+
+INSERT ALL
+INTO employee VALUES(1, '0112358', 'Elvis', 'Presley', 'is@dead.io')
+INTO employee VALUES(2, '0132134', 'Elvis', 'Presley', 'is@alive.io')
+INTO employee VALUES(3, '3141592', 'Erwin', 'Schrodinger', 'i@like.cats')
+select 1 from dual;
+column emp_phone format A15;
+column emp_fname format A15;
+column emp_lname format A15;
+column emp_email format A15;
+
+
+
