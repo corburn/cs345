@@ -21,3 +21,13 @@ BEGIN
       FROM dual;
 END;
 /
+
+--Add test data
+INSERT INTO customer_location(cus_id, cus_add_1, cus_add_2, cus_loc_zip, cus_loc_phone, cus_instructions)
+VALUES (1, '21 Jump St.', null, '45221', '9285551233', 'Deliver to back door');
+
+INSERT INTO customer_location(cus_id, cus_add_1, cus_add_2, cus_loc_zip, cus_loc_phone, cus_instructions)
+VALUES (1, '11 N. Peace Ave.', 'apt #15', '45221', '9285551919', null);
+
+INSERT INTO customer_location(cus_id, cus_add_1, cus_add_2, cus_loc_zip, cus_loc_phone, cus_instructions)
+VALUES (2, '2050 Huntington Dr.', 'apt #215', '45211', '9285551111', 'Second floor');

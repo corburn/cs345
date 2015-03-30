@@ -13,4 +13,16 @@ CREATE TABLE request(
     CONSTRAINT request_driver_fk FOREIGN KEY (driver_id) REFERENCES employee(emp_id)
 );
 
+-- Autoincrement primary key
+-- If a value for the primary key is unspecified, it will be set to the next number in the sequence.
+CREATE SEQUENCE request_seq;
+CREATE TRIGGER request_trig
+BEFORE INSERT ON request 
+FOR EACH ROW
+BEGIN
+      SELECT request_seq.NEXTVAL
+      INTO :new.request_id
+      FROM dual;
+END;
+/
 
