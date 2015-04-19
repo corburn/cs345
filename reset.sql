@@ -10,6 +10,7 @@
 -- directory.
 DEFINE _EDITOR = vim
 SET ECHO ON;
+SET SERVEROUTPUT ON;
 SPOOL cs345project4.txt
 
 -- Tables with foreign keys must be dropped before the tables they reference.
@@ -30,6 +31,7 @@ SPOOL cs345project4.txt
 @seed/drop_customer_location
 @seed/drop_customer
 
+-- Re-instantiated the tables
 @seed/customer
 @seed/customer_location
 @seed/restaurant
@@ -40,5 +42,11 @@ SPOOL cs345project4.txt
 @seed/menu_item
 @seed/request_item
 
+-------------------------------------------
+--Procedures
+-------------------------------------------
+-- Remove any procedures that were created
+@seed/procedures/prc_request_add
+@seed/procedures/prc_req_item_add
 
 SPOOL OFF
