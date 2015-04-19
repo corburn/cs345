@@ -732,7 +732,8 @@ SQL>
 SQL> @seed/procedures/prc_req_item_add
 SQL> /* Procedure for adding a request_item to the request_item table
 SQL> 	Example usage:
-SQL> 	     SQL> exec prc_req_item_add( .... )
+SQL> 	     SQL> exec prc_req_item_add(2)
+SQL> 	     (2 would be the item_id of the menu_item being added)
 SQL> */
 SQL> 
 SQL> CREATE OR REPLACE PROCEDURE prc_req_item_add (itemid menu_item.item_id%type) IS
