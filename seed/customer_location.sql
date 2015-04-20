@@ -31,3 +31,21 @@ VALUES (1, '11 N. Peace Ave.', 'apt #15', '45221', '9285551919', null);
 
 INSERT INTO customer_location(cus_id, cus_add_1, cus_add_2, cus_loc_zip, cus_loc_phone, cus_instructions)
 VALUES (2, '2050 Huntington Dr.', 'apt #215', '45211', '9285551111', 'Second floor');
+
+INSERT INTO customer_location(cus_id, cus_add_1, cus_add_2, cus_loc_zip, cus_loc_phone, cus_instructions)
+VALUES (3, '564 W. Moore St.', null, '45220', '9285551298', null);
+
+INSERT INTO customer_location(cus_id, cus_add_1, cus_add_2, cus_loc_zip, cus_loc_phone, cus_instructions)
+VALUES (4, '1917 E. Red Blvd.', null, '45211', '4805681652', 'Behind concrete wall');
+
+INSERT INTO customer_location(cus_id, cus_add_1, cus_add_2, cus_loc_zip, cus_loc_phone, cus_instructions)
+VALUES (5, '654 N. Acorn Ln.', 'apt #22', '45220', '9284562845', null);
+
+INSERT INTO customer_location(cus_id, cus_add_1, cus_add_2, cus_loc_zip, cus_loc_phone, cus_instructions)
+VALUES (5, '555 Grey Dr.', 'suite 56', '45211', '9285561238', 'Last business on the right');
+
+INSERT INTO customer_location(cus_id, cus_add_1, cus_add_2, cus_loc_zip, cus_loc_phone, cus_instructions)
+VALUES (6, '7895 S. Chile Ln.', null, '45211', '6458962157', null);
+
+INSERT INTO customer_location(cus_id, cus_add_1, cus_add_2, cus_loc_zip, cus_loc_phone, cus_instructions)
+VALUES (7, '456 W. Sunny Rd.', null, '45221', '2138854962', null);
