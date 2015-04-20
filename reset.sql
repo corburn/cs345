@@ -46,7 +46,13 @@ SPOOL cs345project4.txt
 --Procedures
 -------------------------------------------
 -- Remove any procedures that were created
-@seed/procedures/prc_request_add
-@seed/procedures/prc_req_item_add
+procedures/prc_request_add
+procedures/prc_req_item_add
+
+-------------------------------------------
+--Views
+-------------------------------------------
+views/schedule_view
+views/customer_view
 
 SPOOL OFF
