@@ -4,6 +4,7 @@ CREATE TABLE request(
     --prc_request_add procedure adds the current logged in user to this column
     dispatcher VARCHAR2(20),
     driver_id INT,
+    price_price NUMBER(9,2),
     create_time DATE CONSTRAINT request_create_time_nn_cnst NOT NULL,
     dispatch_time DATE,
     estim_pickup DATE,
