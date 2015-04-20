@@ -14,4 +14,4 @@ CREATE OR REPLACE VIEW schedule_view AS
     SELECT emp_id, emp_fname, emp_lname, (TO_CHAR(sche_start, 'yyyy-mm-dd hh24:mi')) "START", TO_CHAR(sche_end, 'yyyy-mm-dd hh24:mi') "END"
     FROM employee
     LEFT OUTER JOIN schedule USING (emp_id)
-    ORDER BY emp_id, "start", "end";
+    ORDER BY emp_id, "START", "END";

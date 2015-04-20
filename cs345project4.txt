@@ -326,6 +326,30 @@ SQL> INSERT INTO customer(cus_phone, cus_fname, cus_lname, cus_email)
 
 1 row created.
 
+SQL> 
+SQL> INSERT INTO customer(cus_phone, cus_fname, cus_lname, cus_email)
+  2  VALUES ('4805681652', 'Jospeh', 'Stalin', 'mustache@ussr.gov');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO customer(cus_phone, cus_fname, cus_lname, cus_email)
+  2  VALUES ('9284562845', 'Steve', 'Smith', 'steve@email.com');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO customer(cus_phone, cus_fname, cus_lname, cus_email)
+  2  VALUES ('9284628453', 'Andrea', 'Brazil', 'latindance@email.com');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO customer(cus_phone, cus_fname, cus_lname, cus_email)
+  2  VALUES ('2138854962', 'Zach', 'Surfer', 'surferdude@email.com');
+
+1 row created.
+
 SQL> @seed/customer_location
 SQL> CREATE TABLE customer_location(
   2  	 cus_loc_id INT CONSTRAINT cus_loc_pk PRIMARY KEY DEFERRABLE INITIALLY IMMEDIATE,
@@ -375,6 +399,42 @@ SQL> INSERT INTO customer_location(cus_id, cus_add_1, cus_add_2, cus_loc_zip, cu
 SQL> 
 SQL> INSERT INTO customer_location(cus_id, cus_add_1, cus_add_2, cus_loc_zip, cus_loc_phone, cus_instructions)
   2  VALUES (2, '2050 Huntington Dr.', 'apt #215', '45211', '9285551111', 'Second floor');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO customer_location(cus_id, cus_add_1, cus_add_2, cus_loc_zip, cus_loc_phone, cus_instructions)
+  2  VALUES (3, '564 W. Moore St.', null, '45220', '9285551298', null);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO customer_location(cus_id, cus_add_1, cus_add_2, cus_loc_zip, cus_loc_phone, cus_instructions)
+  2  VALUES (4, '1917 E. Red Blvd.', null, '45211', '4805681652', 'Behind concrete wall');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO customer_location(cus_id, cus_add_1, cus_add_2, cus_loc_zip, cus_loc_phone, cus_instructions)
+  2  VALUES (5, '654 N. Acorn Ln.', 'apt #22', '45220', '9284562845', null);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO customer_location(cus_id, cus_add_1, cus_add_2, cus_loc_zip, cus_loc_phone, cus_instructions)
+  2  VALUES (5, '555 Grey Dr.', 'suite 56', '45211', '9285561238', 'Last business on the right');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO customer_location(cus_id, cus_add_1, cus_add_2, cus_loc_zip, cus_loc_phone, cus_instructions)
+  2  VALUES (6, '7895 S. Chile Ln.', null, '45211', '6458962157', null);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO customer_location(cus_id, cus_add_1, cus_add_2, cus_loc_zip, cus_loc_phone, cus_instructions)
+  2  VALUES (7, '456 W. Sunny Rd.', null, '45221', '2138854962', null);
 
 1 row created.
 
@@ -461,12 +521,15 @@ Trigger created.
 
 SQL> 
 SQL> INSERT ALL
-  2  INTO employee VALUES(1, '0112358', 'Elvis', 'Presley', 'is@dead.io')
-  3  INTO employee VALUES(2, '0132134', 'Elvis', 'Presley', 'is@alive.io')
-  4  INTO employee VALUES(3, '3141592', 'Erwin', 'Schrodinger', 'i@like.cats')
-  5  select 1 from dual;
+  2  INTO employee VALUES(1, '9280112358', 'Elvis', 'Presley', 'is@dead.io')
+  3  INTO employee VALUES(2, '9280132134', 'Elvis', 'Presley', 'is@alive.io')
+  4  INTO employee VALUES(3, '9283141592', 'Erwin', 'Schrodinger', 'i@like.cats')
+  5  INTO employee VALUES(4, '5155621569', 'John', 'Booth', 'ihateabe@confederate.gov')
+  6  INTO employee VALUES(5, '9284562318', 'Sirhan', 'Sirhan', 'shooter@guns.com')
+  7  INTO employee VALUES(6, '9284812369', 'Charles', 'Guiteau', 'ihatemonday@lasagna.fat')
+  8  select 1 from dual;
 
-3 rows created.
+6 rows created.
 
 SQL> column emp_phone format A15;
 SQL> column emp_fname format A15;
@@ -507,15 +570,12 @@ Trigger created.
 
 SQL> 
 SQL> INSERT ALL
-  2  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (1, 1, '2015-03-29 08:00', '2015-03-29 12:00')
-  3  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (2, 1, '2015-03-29 13:00', '2015-03-29 17:00')
-  4  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (3, 1, '2015-03-29 08:00', '2015-03-29 12:00')
+  2  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (1, 1, TO_DATE('2015-03-29 08:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-03-29 12:00', 'yyyy-mm-dd hh24:mi'))
+  3  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (2, 1, TO_DATE('2015-03-29 13:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-03-29 17:00', 'yyyy-mm-dd hh24:mi'))
+  4  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (3, 1, TO_DATE('2015-03-29 08:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-03-29 12:00', 'yyyy-mm-dd hh24:mi'))
   5  SELECT 1 FROM dual;
-INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (1, 1, '2015-03-29 08:00', '2015-03-29 12:00')
-                                                                   *
-ERROR at line 2:
-ORA-01861: literal does not match format string 
 
+3 rows created.
 
 SQL> @seed/vehicle
 SQL> CREATE TABLE vehicle(
@@ -568,14 +628,15 @@ SQL> CREATE TABLE request(
   4  	 --prc_request_add procedure adds the current logged in user to this column
   5  	 dispatcher VARCHAR2(20),
   6  	 driver_id INT,
-  7  	 create_time DATE CONSTRAINT request_create_time_nn_cnst NOT NULL,
-  8  	 dispatch_time DATE,
-  9  	 estim_pickup DATE,
- 10  	 delivery_pickup DATE,
- 11  	 delivery_complete DATE,
- 12  	 CONSTRAINT cus_loc_id_fk FOREIGN KEY (cus_loc_id) REFERENCES customer_location(cus_loc_id),
- 13  	 CONSTRAINT request_driver_fk FOREIGN KEY (driver_id) REFERENCES employee(emp_id)
- 14  );
+  7  	 total_price NUMBER(9,2),
+  8  	 create_time DATE CONSTRAINT request_create_time_nn_cnst NOT NULL,
+  9  	 dispatch_time DATE,
+ 10  	 estim_pickup DATE,
+ 11  	 delivery_pickup DATE,
+ 12  	 delivery_complete DATE,
+ 13  	 CONSTRAINT cus_loc_id_fk FOREIGN KEY (cus_loc_id) REFERENCES customer_location(cus_loc_id),
+ 14  	 CONSTRAINT request_driver_fk FOREIGN KEY (driver_id) REFERENCES employee(emp_id)
+ 15  );
 
 Table created.
 
@@ -701,58 +762,8 @@ SQL> --Procedures
 SQL> -------------------------------------------
 SQL> -- Remove any procedures that were created
 SQL> @seed/procedures/prc_request_add
-SQL> /* Put Procedure definition here for when a request is made that calculates
-SQL> 	the total of the request based on what was requested and how much it costs.
-SQL> 	Example usage:
-SQL> 	     SQL> exec prc_request_add(1)
-SQL> 
-SQL> 	(adds a new request using the customer location id of '1' */
-SQL> 
-SQL> CREATE OR REPLACE PROCEDURE prc_request_add (customer_loc customer_location.cus_loc_id%type) IS
-  2  --create new request that we will have to use another procedure to add "request_items" to
-  3  current_user VARCHAR2(40);
-  4  location customer_location.cus_add_1%type;
-  5  
-  6  BEGIN
-  7  	 current_user := user; --gets current logged-on user
-  8  	 -- gets the address field and puts it into location variable
-  9  	 SELECT cus_add_1 INTO location
- 10  	 FROM customer_location
- 11  	 WHERE cus_loc_id = customer_loc;
- 12  	 -- creates the new invoice with the current date/time (sysdate includes time as well as date)
- 13  	 INSERT INTO request (cus_loc_id, dispatcher, create_time)
- 14  	     VALUES (customer_loc, current_user, sysdate);
- 15  	 dbms_output.put_line('New order request made by '||current_user||' to be delivered to '||location);
- 16  END;
- 17  /
-
-Procedure created.
-
-SQL> 
+SP2-0310: unable to open file "seed/procedures/prc_request_add.sql"
 SQL> @seed/procedures/prc_req_item_add
-SQL> /* Procedure for adding a request_item to the request_item table
-SQL> 	Example usage:
-SQL> 	     SQL> exec prc_req_item_add(2)
-SQL> 	     (2 would be the item_id of the menu_item being added)
-SQL> */
-SQL> 
-SQL> CREATE OR REPLACE PROCEDURE prc_req_item_add (itemid menu_item.item_id%type) IS
-  2  
-  3  itemname menu_item.item_name%type; --get item's name for the dbms output
-  4  
-  5  BEGIN
-  6  	 -- put item's name into the itemname variable
-  7  	 SELECT item_name INTO itemname
-  8  	 FROM menu_item
-  9  	 WHERE item_id = itemid;
- 10  	 --add the item to the request_item table
- 11  	 INSERT INTO request_item VALUES (itemid, request_seq.CURRVAL);
- 12  	 dbms_output.put_line('Inserted line item "'||itemname||'" to request '||request_seq.CURRVAL);
- 13  END;
- 14  /
-
-Procedure created.
-
-SQL> 
+SP2-0310: unable to open file "seed/procedures/prc_req_item_add.sql"
 SQL> 
 SQL> SPOOL OFF
