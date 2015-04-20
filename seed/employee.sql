@@ -20,9 +20,12 @@ END;
 /
 
 INSERT ALL
-INTO employee VALUES(1, '0112358', 'Elvis', 'Presley', 'is@dead.io')
-INTO employee VALUES(2, '0132134', 'Elvis', 'Presley', 'is@alive.io')
-INTO employee VALUES(3, '3141592', 'Erwin', 'Schrodinger', 'i@like.cats')
+INTO employee VALUES(1, '9280112358', 'Elvis', 'Presley', 'is@dead.io')
+INTO employee VALUES(2, '9280132134', 'Elvis', 'Presley', 'is@alive.io')
+INTO employee VALUES(3, '9283141592', 'Erwin', 'Schrodinger', 'i@like.cats')
+INTO employee VALUES(4, '5155621569', 'John', 'Booth', 'ihateabe@confederate.gov')
+INTO employee VALUES(5, '9284562318', 'Sirhan', 'Sirhan', 'shooter@guns.com')
+INTO employee VALUES(6, '9284812369', 'Charles', 'Guiteau', 'ihatemonday@lasagna.fat')
 select 1 from dual;
 column emp_phone format A15;
 column emp_fname format A15;
