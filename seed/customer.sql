@@ -27,3 +27,15 @@ VALUES ('9285559991', 'Bob', 'Boolean', 'truefalse@bool.org');
 
 INSERT INTO customer(cus_phone, cus_fname, cus_lname, cus_email)
 VALUES ('9285551298', 'Suzy', 'Smith', 'suzy@email.com');
+
+INSERT INTO customer(cus_phone, cus_fname, cus_lname, cus_email)
+VALUES ('4805681652', 'Jospeh', 'Stalin', 'mustache@ussr.gov');
+
+INSERT INTO customer(cus_phone, cus_fname, cus_lname, cus_email)
+VALUES ('9284562845', 'Steve', 'Smith', 'steve@email.com');
+
+INSERT INTO customer(cus_phone, cus_fname, cus_lname, cus_email)
+VALUES ('9284628453', 'Andrea', 'Brazil', 'latindance@email.com');
+
+INSERT INTO customer(cus_phone, cus_fname, cus_lname, cus_email)
+VALUES ('2138854962', 'Zach', 'Surfer', 'surferdude@email.com');
