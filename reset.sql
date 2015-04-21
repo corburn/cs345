@@ -58,4 +58,17 @@ SPOOL cs345project4.txt
 @views/customer_view
 @views/restaurant_view
 
+-------------------------------------------
+--Privileges
+-------------------------------------------
+GRANT ALL ON customer to mlh395;
+GRANT ALL ON customer_location to mlh395;
+GRANT ALL ON restaurant to mlh395;
+GRANT ALL ON employee to mlh395;
+GRANT ALL ON schedule to mlh395;
+GRANT ALL ON vehicle to mlh395;
+GRANT ALL ON request to mlh395;
+GRANT ALL ON menu_item to mlh395;
+GRANT ALL ON request_item to mlh395;
+
 SPOOL OFF
