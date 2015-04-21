@@ -56,6 +56,6 @@ SPOOL cs345project4.txt
 -------------------------------------------
 @views/schedule_view
 @views/customer_view
-@view/restaurant_view
+@views/restaurant_view
 
 SPOOL OFF
