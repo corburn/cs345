@@ -25,9 +25,9 @@ TODO:
       - [ ] How to use it, what data is required, what is the expected result/information.
       - [ ] The functions/procedures must be executable and include examples of actual results.
 - [x] Fill each table with seed data. (See [seed/](https://github.com/corburn/cs345/tree/project4/seed))
-- [ ] Create one (useful) view for *each* user group. There must be at least two user groups. (See [views/](https://github.com/corburn/cs345/tree/project4/views))
+- [x] Create one (useful) view for *each* user group. There must be at least two user groups. (See [views/](https://github.com/corburn/cs345/tree/project4/views))
 - [ ] Create two PL/SQL functions.
 - [x] Create one PL/SQL procedure. (See [procedures/](https://github.com/corburn/cs345/tree/project4/procedures))
 - [ ] Create one PL/SQL trigger.
 - [ ] A detailed description of each trigger including the trigger condition and how it supports the business case.
-- [ ] Grant database read/write permissions for the grader.
+- [x] Grant database read/write permissions for the grader.
