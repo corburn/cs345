@@ -13,7 +13,7 @@
 -- select * from customer view where cus_id=<some customer id>
 
 CREATE OR REPLACE VIEW customer_view AS
-	SELECT cus.cus_id, Request.request_id, Request.create_time, rest.res_name, menu.item_name
+	SELECT cus.cus_id, Request.request_id, Request.create_time, rest.res_name, menu.item_name, req_item.quantity
 	FROM Request JOIN Request_Item req_item ON Request.request_id = req_item.request_id
 	JOIN Menu_Item menu ON req_item.item_id = menu.item_id
 	JOIN Restaurant rest ON menu.res_id = rest.res_id
