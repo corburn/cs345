@@ -51,6 +51,19 @@ SPOOL cs345project4.txt
 @procedures/prc_req_item_add
 @seed/create_requests
 
+
+------------------------------------------
+--Functions
+-----------------------------------------
+@functions/get_order_total
+@functions/schedule_week
+
+
+-------------------------------------------
+--Triggers
+------------------------------------------
+@triggers/dispatch_time_auto
+
 -------------------------------------------
 --Views
 -------------------------------------------
