@@ -57,6 +57,7 @@ SPOOL cs345project4.txt
 @views/schedule_view
 @views/customer_view
 @views/restaurant_view
+@views/total_delivery_time_view
 
 -------------------------------------------
 --Privileges
