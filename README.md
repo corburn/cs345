@@ -15,6 +15,15 @@ The _table_name_ .sql scripts create the table, sequences, and triggers as well 
 
 [Design Document](https://docs.google.com/document/d/1ycWA8mqwbwmc90nGuNukhJcRUCIzEG3IyhkCROw5XDY/edit?usp=sharing)
 
+````
+-- Display this weeks schedule for employee id 6
+SQL> var rc refcursor;
+SQL> begin :rc := schedule_week(6); end;
+/
+
+SQL> print rc;
+````
+
 TODO:
 - [x] A written overview of the system and how it works (the business process). (See Design Document)
 - [x] Data dictionaries including data types and constraints for each field. (See Design Document)
@@ -26,8 +35,8 @@ TODO:
       - [ ] The functions/procedures must be executable and include examples of actual results.
 - [x] Fill each table with seed data. (See [seed/](https://github.com/corburn/cs345/tree/project4/seed))
 - [x] Create one (useful) view for *each* user group. There must be at least two user groups. (See [views/](https://github.com/corburn/cs345/tree/project4/views))
-- [ ] Create two PL/SQL functions.
+- [x] Create two PL/SQL functions.
 - [x] Create one PL/SQL procedure. (See [procedures/](https://github.com/corburn/cs345/tree/project4/procedures))
-- [ ] Create one PL/SQL trigger.
+- [x] Create one PL/SQL trigger.
 - [ ] A detailed description of each trigger including the trigger condition and how it supports the business case.
 - [x] Grant database read/write permissions for the grader.
