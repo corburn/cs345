@@ -34,7 +34,6 @@ INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (11, 3, TO_DATE('201
 INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (12, 4, TO_DATE('2015-03-30 12:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-03-30 17:00', 'yyyy-mm-dd hh24:mi'))
 INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (13, 4, TO_DATE('2015-03-30 17:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-03-30 22:00', 'yyyy-mm-dd hh24:mi'))
 INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (14, 6, TO_DATE('2015-03-30 14:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-03-30 22:00', 'yyyy-mm-dd hh24:mi'))
-
 INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (15, 1, TO_DATE('2015-04-22 12:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-04-29 16:00', 'yyyy-mm-dd hh24:mi'))
 INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (16, 1, TO_DATE('2015-04-22 17:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-04-29 20:00', 'yyyy-mm-dd hh24:mi'))
 INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (17, 2, TO_DATE('2015-04-22 12:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-04-29 17:00', 'yyyy-mm-dd hh24:mi'))
