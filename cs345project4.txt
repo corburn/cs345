@@ -281,10 +281,10 @@ SQL> -- Re-instantiated the tables
 SQL> @seed/customer
 SQL> CREATE TABLE customer(
   2  	 cus_id INT CONSTRAINT cus_pk PRIMARY KEY DEFERRABLE INITIALLY IMMEDIATE,
-  3  	 cus_phone VARCHAR(255) CONSTRAINT cus_phone_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
-  4  	 cus_fname VARCHAR(255) CONSTRAINT cus_fname_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
-  5  	 cus_lname VARCHAR(255) CONSTRAINT cus_lname_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
-  6  	 cus_email VARCHAR(255) CONSTRAINT cus_email_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE CONSTRAINT cus_email_uq_cnst UNIQUE DEFERRABLE INITIALLY IMMEDIATE
+  3  	 cus_phone CHAR(10) CONSTRAINT cus_phone_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
+  4  	 cus_fname VARCHAR(20) CONSTRAINT cus_fname_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
+  5  	 cus_lname VARCHAR(20) CONSTRAINT cus_lname_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
+  6  	 cus_email VARCHAR(100) CONSTRAINT cus_email_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE CONSTRAINT cus_email_uq_cnst UNIQUE DEFERRABLE INITIALLY IMMEDIATE
   7  );
 
 Table created.
@@ -354,10 +354,10 @@ SQL> @seed/customer_location
 SQL> CREATE TABLE customer_location(
   2  	 cus_loc_id INT CONSTRAINT cus_loc_pk PRIMARY KEY DEFERRABLE INITIALLY IMMEDIATE,
   3  	 cus_id INT CONSTRAINT cus_id_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
-  4  	 cus_add_1 VARCHAR(255) CONSTRAINT cus_add_1_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
-  5  	 cus_add_2 VARCHAR(255),
-  6  	 cus_loc_zip VARCHAR(255) CONSTRAINT cus_loc_zip_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
-  7  	 cus_loc_phone VARCHAR(255) CONSTRAINT cus_loc_phone_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
+  4  	 cus_add_1 VARCHAR(100) CONSTRAINT cus_add_1_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
+  5  	 cus_add_2 VARCHAR(100),
+  6  	 cus_loc_zip CHAR(5) CONSTRAINT cus_loc_zip_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
+  7  	 cus_loc_phone CHAR(10) CONSTRAINT cus_loc_phone_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
   8  	 cus_instructions VARCHAR(255),
   9  	 CONSTRAINT cus_loc_cus_id_fk FOREIGN KEY(cus_id) REFERENCES customer(cus_id)
  10  );
@@ -444,9 +444,9 @@ SQL> CREATE TABLE restaurant(
   3  	 res_name VARCHAR(50) CONSTRAINT res_name_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
   4  	 res_add_1 VARCHAR(100) CONSTRAINT res_add_1_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
   5  	 res_add_2 VARCHAR(100),
-  6  	 res_zip VARCHAR(10) CONSTRAINT res_zip_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
-  7  	 res_phone VARCHAR(15) CONSTRAINT res_phone_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
-  8  	 res_instructions VARCHAR(100)
+  6  	 res_zip CHAR(5) CONSTRAINT res_zip_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
+  7  	 res_phone CHAR(10) CONSTRAINT res_phone_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
+  8  	 res_instructions VARCHAR(255)
   9  );
 
 Table created.
@@ -492,10 +492,10 @@ SQL> INSERT INTO restaurant (res_name, res_add_1, res_add_2, res_zip, res_phone,
 SQL> @seed/employee
 SQL> CREATE TABLE employee(
   2  	 emp_id INT CONSTRAINT emp_pk PRIMARY KEY DEFERRABLE INITIALLY IMMEDIATE,
-  3  	 emp_phone VARCHAR(255) CONSTRAINT emp_phone_cnst NOT NULL,
-  4  	 emp_fname VARCHAR(255) CONSTRAINT emp_fname_cnst NOT NULL,
-  5  	 emp_lname VARCHAR(255) CONSTRAINT emp_lname_cnst NOT NULL,
-  6  	 emp_email VARCHAR(255) CONSTRAINT emp_email_cnst NOT NULL
+  3  	 emp_phone CHAR(10) CONSTRAINT emp_phone_cnst NOT NULL,
+  4  	 emp_fname VARCHAR(20) CONSTRAINT emp_fname_cnst NOT NULL,
+  5  	 emp_lname VARCHAR(20) CONSTRAINT emp_lname_cnst NOT NULL,
+  6  	 emp_email VARCHAR(100) CONSTRAINT emp_email_cnst NOT NULL
   7  );
 
 Table created.
@@ -584,18 +584,32 @@ SQL> INSERT ALL
  13  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (12, 4, TO_DATE('2015-03-30 12:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-03-30 17:00', 'yyyy-mm-dd hh24:mi'))
  14  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (13, 4, TO_DATE('2015-03-30 17:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-03-30 22:00', 'yyyy-mm-dd hh24:mi'))
  15  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (14, 6, TO_DATE('2015-03-30 14:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-03-30 22:00', 'yyyy-mm-dd hh24:mi'))
- 16  SELECT 1 FROM dual;
+ 16  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (15, 1, TO_DATE('2015-04-22 12:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-04-29 16:00', 'yyyy-mm-dd hh24:mi'))
+ 17  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (16, 1, TO_DATE('2015-04-22 17:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-04-29 20:00', 'yyyy-mm-dd hh24:mi'))
+ 18  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (17, 2, TO_DATE('2015-04-22 12:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-04-29 17:00', 'yyyy-mm-dd hh24:mi'))
+ 19  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (18, 2, TO_DATE('2015-04-22 18:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-04-29 22:00', 'yyyy-mm-dd hh24:mi'))
+ 20  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (19, 4, TO_DATE('2015-04-22 12:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-04-29 17:00', 'yyyy-mm-dd hh24:mi'))
+ 21  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (20, 4, TO_DATE('2015-04-22 17:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-04-29 22:00', 'yyyy-mm-dd hh24:mi'))
+ 22  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (21, 5, TO_DATE('2015-04-22 14:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-04-29 22:00', 'yyyy-mm-dd hh24:mi'))
+ 23  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (22, 1, TO_DATE('2015-04-22 12:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-04-30 16:00', 'yyyy-mm-dd hh24:mi'))
+ 24  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (23, 1, TO_DATE('2015-04-22 17:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-04-30 20:00', 'yyyy-mm-dd hh24:mi'))
+ 25  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (24, 3, TO_DATE('2015-04-22 12:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-04-30 17:00', 'yyyy-mm-dd hh24:mi'))
+ 26  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (25, 3, TO_DATE('2015-04-22 18:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-04-30 22:00', 'yyyy-mm-dd hh24:mi'))
+ 27  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (26, 4, TO_DATE('2015-04-22 12:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-04-30 17:00', 'yyyy-mm-dd hh24:mi'))
+ 28  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (27, 4, TO_DATE('2015-04-22 17:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-04-30 22:00', 'yyyy-mm-dd hh24:mi'))
+ 29  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (28, 6, TO_DATE('2015-04-22 14:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-04-30 22:00', 'yyyy-mm-dd hh24:mi'))
+ 30  SELECT 1 FROM dual;
 
-14 rows created.
+28 rows created.
 
 SQL> @seed/vehicle
 SQL> CREATE TABLE vehicle(
   2  	 veh_id INT CONSTRAINT veh_pk PRIMARY KEY DEFERRABLE INITIALLY IMMEDIATE,
   3  	 emp_id INT CONSTRAINT veh_emp_id_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
-  4  	 veh_make VARCHAR(255) CONSTRAINT veh_make_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
-  5  	 veh_model VARCHAR(255) CONSTRAINT veh_model_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
+  4  	 veh_make VARCHAR(20) CONSTRAINT veh_make_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
+  5  	 veh_model VARCHAR(20) CONSTRAINT veh_model_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
   6  	 veh_year SMALLINT CONSTRAINT veh_year_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
-  7  	 veh_color VARCHAR(255) CONSTRAINT veh_color_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
+  7  	 veh_color VARCHAR(25) CONSTRAINT veh_color_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
   8  	 veh_lic_plt CHAR(10) CONSTRAINT veh_lic_plt_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
   9  	 CONSTRAINT veh_emp_id_fk FOREIGN KEY (emp_id) REFERENCES employee(emp_id) DEFERRABLE INITIALLY IMMEDIATE
  10  );

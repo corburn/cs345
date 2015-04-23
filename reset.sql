@@ -55,7 +55,7 @@ SPOOL cs345project4.txt
 ------------------------------------------
 --Functions
 -----------------------------------------
-@functions/get_order_total
+@functions/get_request_total
 @functions/schedule_week
 
 
