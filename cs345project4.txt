@@ -1,0 +1,1153 @@
+SQL> 
+SQL> -- Tables with foreign keys must be dropped before the tables they reference.
+SQL> -- Drop tables in the opposite request they are created.
+SQL> --request_item references menu_item and order
+SQL> @seed/drop_request_item
+SQL> -- Drop table if exists
+SQL> BEGIN
+  2  	EXECUTE IMMEDIATE 'DROP TABLE request_item';
+  3  EXCEPTION
+  4  	WHEN OTHERS THEN
+  5  	   -- Table or view does not exist
+  6  	   IF SQLCODE != -942 THEN
+  7  	      RAISE;
+  8  	   END IF;
+  9  END;
+ 10  /
+
+PL/SQL procedure successfully completed.
+
+SQL> 
+SQL> -- Drop sequence if exists
+SQL> BEGIN
+  2  	 EXECUTE IMMEDIATE 'DROP SEQUENCE request_item_seq';
+  3  EXCEPTION
+  4  	 WHEN OTHERS THEN
+  5  	     -- Sequence does not exist
+  6  	     IF SQLCODE != -02289 THEN
+  7  		 RAISE;
+  8  	     END IF;
+  9  END;
+ 10  /
+
+PL/SQL procedure successfully completed.
+
+SQL> -- menu_item references restaurant
+SQL> @seed/drop_menu_item
+SQL> -- Drop table if exists
+SQL> BEGIN
+  2  	EXECUTE IMMEDIATE 'DROP TABLE menu_item';
+  3  EXCEPTION
+  4  	WHEN OTHERS THEN
+  5  	   -- Table or view does not exist
+  6  	   IF SQLCODE != -942 THEN
+  7  	      RAISE;
+  8  	   END IF;
+  9  END;
+ 10  /
+
+PL/SQL procedure successfully completed.
+
+SQL> 
+SQL> -- Drop sequence if exists
+SQL> BEGIN
+  2  	 EXECUTE IMMEDIATE 'DROP SEQUENCE menu_item_seq';
+  3  EXCEPTION
+  4  	 WHEN OTHERS THEN
+  5  	     -- Sequence does not exist
+  6  	     IF SQLCODE != -02289 THEN
+  7  		 RAISE;
+  8  	     END IF;
+  9  END;
+ 10  /
+
+PL/SQL procedure successfully completed.
+
+SQL> -- request references employee and customer_location
+SQL> @seed/drop_request
+SQL> -- Drop table if exists
+SQL> BEGIN
+  2  	EXECUTE IMMEDIATE 'DROP TABLE request';
+  3  EXCEPTION
+  4  	WHEN OTHERS THEN
+  5  	   -- Table or view does not exist
+  6  	   IF SQLCODE != -942 THEN
+  7  	      RAISE;
+  8  	   END IF;
+  9  END;
+ 10  /
+
+PL/SQL procedure successfully completed.
+
+SQL> 
+SQL> -- Drop sequence if exists
+SQL> BEGIN
+  2  	 EXECUTE IMMEDIATE 'DROP SEQUENCE request_seq';
+  3  EXCEPTION
+  4  	 WHEN OTHERS THEN
+  5  	     -- Sequence does not exist
+  6  	     IF SQLCODE != -02289 THEN
+  7  		 RAISE;
+  8  	     END IF;
+  9  END;
+ 10  /
+
+PL/SQL procedure successfully completed.
+
+SQL> -- vehicle references employee
+SQL> @seed/drop_vehicle
+SQL> -- Drop table if exists
+SQL> BEGIN
+  2  	EXECUTE IMMEDIATE 'DROP TABLE vehicle';
+  3  EXCEPTION
+  4  	WHEN OTHERS THEN
+  5  	   -- Table or view does not exist
+  6  	   IF SQLCODE != -942 THEN
+  7  	      RAISE;
+  8  	   END IF;
+  9  END;
+ 10  /
+
+PL/SQL procedure successfully completed.
+
+SQL> 
+SQL> -- Drop sequence if exists
+SQL> BEGIN
+  2  	 EXECUTE IMMEDIATE 'DROP SEQUENCE vehicle_seq';
+  3  EXCEPTION
+  4  	 WHEN OTHERS THEN
+  5  	     -- Sequence does not exist
+  6  	     IF SQLCODE != -02289 THEN
+  7  		 RAISE;
+  8  	     END IF;
+  9  END;
+ 10  /
+
+PL/SQL procedure successfully completed.
+
+SQL> -- schedule reference employee
+SQL> @seed/drop_schedule
+SQL> -- Drop table if exists
+SQL> BEGIN
+  2  	 EXECUTE IMMEDIATE 'DROP TABLE schedule';
+  3  EXCEPTION
+  4  	WHEN OTHERS THEN
+  5  	   IF SQLCODE != -942 THEN
+  6  	      RAISE;
+  7  	   END IF;
+  8  END;
+  9  /
+
+PL/SQL procedure successfully completed.
+
+SQL> 
+SQL> -- Drop sequence if exists
+SQL> BEGIN
+  2  	 EXECUTE IMMEDIATE 'DROP SEQUENCE schedule_seq';
+  3  EXCEPTION
+  4  	 WHEN OTHERS THEN
+  5  	     -- Sequence does not exist
+  6  	     IF SQLCODE != -02289 THEN
+  7  		 RAISE;
+  8  	     END IF;
+  9  END;
+ 10  /
+
+PL/SQL procedure successfully completed.
+
+SQL> @seed/drop_employee
+SQL> -- Drop table if exists
+SQL> BEGIN
+  2  	 EXECUTE IMMEDIATE 'DROP TABLE employee';
+  3  EXCEPTION
+  4  	WHEN OTHERS THEN
+  5  	   -- Table or view does not exist
+  6  	   IF SQLCODE != -942 THEN
+  7  	      RAISE;
+  8  	   END IF;
+  9  END;
+ 10  /
+
+PL/SQL procedure successfully completed.
+
+SQL> 
+SQL> -- Drop sequence if exists
+SQL> BEGIN
+  2  	 EXECUTE IMMEDIATE 'DROP SEQUENCE employee_seq';
+  3  EXCEPTION
+  4  	 WHEN OTHERS THEN
+  5  	     -- Sequence does not exist
+  6  	     IF SQLCODE != -02289 THEN
+  7  		 RAISE;
+  8  	     END IF;
+  9  END;
+ 10  /
+
+PL/SQL procedure successfully completed.
+
+SQL> @seed/drop_restaurant
+SQL> -- Drop table if exists
+SQL> BEGIN
+  2  	EXECUTE IMMEDIATE 'DROP TABLE restaurant';
+  3  EXCEPTION
+  4  	WHEN OTHERS THEN
+  5  	   -- Table or view does not exist
+  6  	   IF SQLCODE != -942 THEN
+  7  	      RAISE;
+  8  	   END IF;
+  9  END;
+ 10  /
+
+PL/SQL procedure successfully completed.
+
+SQL> 
+SQL> -- Drop sequence if exists
+SQL> BEGIN
+  2  	 EXECUTE IMMEDIATE 'DROP SEQUENCE restaurant_seq';
+  3  EXCEPTION
+  4  	 WHEN OTHERS THEN
+  5  	     -- Sequence does not exist
+  6  	     IF SQLCODE != -02289 THEN
+  7  		 RAISE;
+  8  	     END IF;
+  9  END;
+ 10  /
+
+PL/SQL procedure successfully completed.
+
+SQL> -- customer_location references customer
+SQL> @seed/drop_customer_location
+SQL> -- Drop table if exists
+SQL> BEGIN
+  2  	EXECUTE IMMEDIATE 'DROP TABLE customer_location';
+  3  EXCEPTION
+  4  	WHEN OTHERS THEN
+  5  	   -- Table or view does not exist
+  6  	   IF SQLCODE != -942 THEN
+  7  	      RAISE;
+  8  	   END IF;
+  9  END;
+ 10  /
+
+PL/SQL procedure successfully completed.
+
+SQL> 
+SQL> -- Drop sequence if exists
+SQL> BEGIN
+  2  	 EXECUTE IMMEDIATE 'DROP SEQUENCE customer_location_seq';
+  3  EXCEPTION
+  4  	 WHEN OTHERS THEN
+  5  	     -- Sequence does not exist
+  6  	     IF SQLCODE != -02289 THEN
+  7  		 RAISE;
+  8  	     END IF;
+  9  END;
+ 10  /
+
+PL/SQL procedure successfully completed.
+
+SQL> @seed/drop_customer
+SQL> -- Drop table if exists
+SQL> BEGIN
+  2  	EXECUTE IMMEDIATE 'DROP TABLE customer';
+  3  EXCEPTION
+  4  	WHEN OTHERS THEN
+  5  	   -- Table or view does not exist
+  6  	   IF SQLCODE != -942 THEN
+  7  	      RAISE;
+  8  	   END IF;
+  9  END;
+ 10  /
+
+PL/SQL procedure successfully completed.
+
+SQL> 
+SQL> -- Drop sequence if exists
+SQL> BEGIN
+  2  	 EXECUTE IMMEDIATE 'DROP SEQUENCE customer_seq';
+  3  EXCEPTION
+  4  	 WHEN OTHERS THEN
+  5  	     -- Sequence does not exist
+  6  	     IF SQLCODE != -02289 THEN
+  7  		 RAISE;
+  8  	     END IF;
+  9  END;
+ 10  /
+
+PL/SQL procedure successfully completed.
+
+SQL> 
+SQL> -- Re-instantiated the tables
+SQL> @seed/customer
+SQL> CREATE TABLE customer(
+  2  	 cus_id INT CONSTRAINT cus_pk PRIMARY KEY DEFERRABLE INITIALLY IMMEDIATE,
+  3  	 cus_phone VARCHAR(255) CONSTRAINT cus_phone_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
+  4  	 cus_fname VARCHAR(255) CONSTRAINT cus_fname_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
+  5  	 cus_lname VARCHAR(255) CONSTRAINT cus_lname_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
+  6  	 cus_email VARCHAR(255) CONSTRAINT cus_email_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE CONSTRAINT cus_email_uq_cnst UNIQUE DEFERRABLE INITIALLY IMMEDIATE
+  7  );
+
+Table created.
+
+SQL> 
+SQL> -- Autoincrement primary key
+SQL> -- If a value for the primary key is unspecified, it will be set to the next number in the sequence.
+SQL> CREATE SEQUENCE customer_seq;
+
+Sequence created.
+
+SQL> CREATE TRIGGER customer_trig
+  2  BEFORE INSERT ON customer
+  3  FOR EACH ROW
+  4  BEGIN
+  5  	   SELECT customer_seq.NEXTVAL
+  6  	   INTO :new.cus_id
+  7  	   FROM dual;
+  8  END;
+  9  /
+
+Trigger created.
+
+SQL> 
+SQL> INSERT INTO customer(cus_phone, cus_fname, cus_lname, cus_email)
+  2  VALUES ('9285559876', 'Hank', 'Williams', 'hank.williams@email.com');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO customer(cus_phone, cus_fname, cus_lname, cus_email)
+  2  VALUES ('9285559991', 'Bob', 'Boolean', 'truefalse@bool.org');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO customer(cus_phone, cus_fname, cus_lname, cus_email)
+  2  VALUES ('9285551298', 'Suzy', 'Smith', 'suzy@email.com');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO customer(cus_phone, cus_fname, cus_lname, cus_email)
+  2  VALUES ('4805681652', 'Jospeh', 'Stalin', 'mustache@ussr.gov');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO customer(cus_phone, cus_fname, cus_lname, cus_email)
+  2  VALUES ('9284562845', 'Steve', 'Smith', 'steve@email.com');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO customer(cus_phone, cus_fname, cus_lname, cus_email)
+  2  VALUES ('9284628453', 'Andrea', 'Brazil', 'latindance@email.com');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO customer(cus_phone, cus_fname, cus_lname, cus_email)
+  2  VALUES ('2138854962', 'Zach', 'Surfer', 'surferdude@email.com');
+
+1 row created.
+
+SQL> @seed/customer_location
+SQL> CREATE TABLE customer_location(
+  2  	 cus_loc_id INT CONSTRAINT cus_loc_pk PRIMARY KEY DEFERRABLE INITIALLY IMMEDIATE,
+  3  	 cus_id INT CONSTRAINT cus_id_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
+  4  	 cus_add_1 VARCHAR(255) CONSTRAINT cus_add_1_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
+  5  	 cus_add_2 VARCHAR(255),
+  6  	 cus_loc_zip VARCHAR(255) CONSTRAINT cus_loc_zip_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
+  7  	 cus_loc_phone VARCHAR(255) CONSTRAINT cus_loc_phone_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
+  8  	 cus_instructions VARCHAR(255),
+  9  	 CONSTRAINT cus_loc_cus_id_fk FOREIGN KEY(cus_id) REFERENCES customer(cus_id)
+ 10  );
+
+Table created.
+
+SQL> 
+SQL> -- Autoincrement primary key
+SQL> -- If a value for the primary key is unspecified, it will be set to the next number in the sequence.
+SQL> CREATE SEQUENCE customer_location_seq;
+
+Sequence created.
+
+SQL> CREATE TRIGGER customer_location_trig
+  2  BEFORE INSERT ON customer_location
+  3  FOR EACH ROW
+  4  BEGIN
+  5  	   SELECT customer_location_seq.NEXTVAL
+  6  	   INTO :new.cus_loc_id
+  7  	   FROM dual;
+  8  END;
+  9  /
+
+Trigger created.
+
+SQL> 
+SQL> --Add test data
+SQL> INSERT INTO customer_location(cus_id, cus_add_1, cus_add_2, cus_loc_zip, cus_loc_phone, cus_instructions)
+  2  VALUES (1, '21 Jump St.', null, '45221', '9285551233', 'Deliver to back door');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO customer_location(cus_id, cus_add_1, cus_add_2, cus_loc_zip, cus_loc_phone, cus_instructions)
+  2  VALUES (1, '11 N. Peace Ave.', 'apt #15', '45221', '9285551919', null);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO customer_location(cus_id, cus_add_1, cus_add_2, cus_loc_zip, cus_loc_phone, cus_instructions)
+  2  VALUES (2, '2050 Huntington Dr.', 'apt #215', '45211', '9285551111', 'Second floor');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO customer_location(cus_id, cus_add_1, cus_add_2, cus_loc_zip, cus_loc_phone, cus_instructions)
+  2  VALUES (3, '564 W. Moore St.', null, '45220', '9285551298', null);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO customer_location(cus_id, cus_add_1, cus_add_2, cus_loc_zip, cus_loc_phone, cus_instructions)
+  2  VALUES (4, '1917 E. Red Blvd.', null, '45211', '4805681652', 'Behind concrete wall');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO customer_location(cus_id, cus_add_1, cus_add_2, cus_loc_zip, cus_loc_phone, cus_instructions)
+  2  VALUES (5, '654 N. Acorn Ln.', 'apt #22', '45220', '9284562845', null);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO customer_location(cus_id, cus_add_1, cus_add_2, cus_loc_zip, cus_loc_phone, cus_instructions)
+  2  VALUES (5, '555 Grey Dr.', 'suite 56', '45211', '9285561238', 'Last business on the right');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO customer_location(cus_id, cus_add_1, cus_add_2, cus_loc_zip, cus_loc_phone, cus_instructions)
+  2  VALUES (6, '7895 S. Chile Ln.', null, '45211', '6458962157', null);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO customer_location(cus_id, cus_add_1, cus_add_2, cus_loc_zip, cus_loc_phone, cus_instructions)
+  2  VALUES (7, '456 W. Sunny Rd.', null, '45221', '2138854962', null);
+
+1 row created.
+
+SQL> @seed/restaurant
+SQL> CREATE TABLE restaurant(
+  2  	 res_id INT CONSTRAINT restaurant_pk PRIMARY KEY DEFERRABLE INITIALLY IMMEDIATE,
+  3  	 res_name VARCHAR(50) CONSTRAINT res_name_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
+  4  	 res_add_1 VARCHAR(100) CONSTRAINT res_add_1_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
+  5  	 res_add_2 VARCHAR(100),
+  6  	 res_zip VARCHAR(10) CONSTRAINT res_zip_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
+  7  	 res_phone VARCHAR(15) CONSTRAINT res_phone_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
+  8  	 res_instructions VARCHAR(100)
+  9  );
+
+Table created.
+
+SQL> 
+SQL> -- Autoincrement primary key
+SQL> -- If a value for the primary key is unspecified, it will be set to the next number in the sequence.
+SQL> CREATE SEQUENCE restaurant_seq;
+
+Sequence created.
+
+SQL> CREATE TRIGGER restaurant_trig
+  2  BEFORE INSERT ON restaurant
+  3  FOR EACH ROW
+  4  BEGIN
+  5  	   SELECT restaurant_seq.NEXTVAL
+  6  	   INTO :new.res_id
+  7  	   FROM dual;
+  8  END;
+  9  /
+
+Trigger created.
+
+SQL> 
+SQL> INSERT INTO restaurant (res_name, res_add_1, res_add_2, res_zip, res_phone, res_instructions)
+  2  VALUES ('Freddy Fazbear''s Pizza', '3345 S. Jump St.', 'Suite #11', '45221', '4502263154',
+  3  	     'Farthest right location at the strip mall');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO restaurant (res_name, res_add_1, res_add_2, res_zip, res_phone, res_instructions)
+  2  VALUES ('Pizza Planet', '122 N. Toy Ave.', Null, '45221', '4505452221', Null);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO restaurant (res_name, res_add_1, res_add_2, res_zip, res_phone, res_instructions)
+  2  VALUES ('Krusty Burger', '1990 W. Homer St.', Null, '45221', '4508963214', Null);
+
+1 row created.
+
+SQL> @seed/employee
+SQL> CREATE TABLE employee(
+  2  	 emp_id INT CONSTRAINT emp_pk PRIMARY KEY DEFERRABLE INITIALLY IMMEDIATE,
+  3  	 emp_phone VARCHAR(255) CONSTRAINT emp_phone_cnst NOT NULL,
+  4  	 emp_fname VARCHAR(255) CONSTRAINT emp_fname_cnst NOT NULL,
+  5  	 emp_lname VARCHAR(255) CONSTRAINT emp_lname_cnst NOT NULL,
+  6  	 emp_email VARCHAR(255) CONSTRAINT emp_email_cnst NOT NULL
+  7  );
+
+Table created.
+
+SQL> 
+SQL> -- Autoincrement primary key
+SQL> -- If a value for the primary key is unspecified, it will be set to the next number in the sequence.
+SQL> CREATE SEQUENCE employee_seq;
+
+Sequence created.
+
+SQL> CREATE TRIGGER employee_trig
+  2  BEFORE INSERT ON employee
+  3  FOR EACH ROW
+  4  BEGIN
+  5  	   SELECT employee_seq.NEXTVAL
+  6  	   INTO :new.emp_id
+  7  	   FROM dual;
+  8  END;
+  9  /
+
+Trigger created.
+
+SQL> 
+SQL> INSERT ALL
+  2  INTO employee VALUES(1, '9280112358', 'Elvis', 'Presley', 'is@dead.io')
+  3  INTO employee VALUES(2, '9280132134', 'Elvis', 'Presley', 'is@alive.io')
+  4  INTO employee VALUES(3, '9283141592', 'Erwin', 'Schrodinger', 'i@like.cats')
+  5  INTO employee VALUES(4, '5155621569', 'John', 'Booth', 'ihateabe@confederate.gov')
+  6  INTO employee VALUES(5, '9284562318', 'Sirhan', 'Sirhan', 'shooter@guns.com')
+  7  INTO employee VALUES(6, '9284812369', 'Charles', 'Guiteau', 'ihatemonday@lasagna.fat')
+  8  select 1 from dual;
+
+6 rows created.
+
+SQL> column emp_phone format A15;
+SQL> column emp_fname format A15;
+SQL> column emp_lname format A15;
+SQL> column emp_email format A15;
+SQL> 
+SQL> 
+SQL> 
+SQL> @seed/schedule
+SQL> CREATE TABLE schedule(
+  2  	 sche_id INT CONSTRAINT sche_pk PRIMARY KEY DEFERRABLE INITIALLY IMMEDIATE,
+  3  	 emp_id INT CONSTRAINT sche_emp_id_cnst NOT NULL,
+  4  	 sche_start DATE CONSTRAINT sche_sche_start_cnst NOT NULL,
+  5  	 sche_end DATE CONSTRAINT sche_sche_end_cnst NOT NULL,
+  6  	 CONSTRAINT emp_id_fk FOREIGN KEY (emp_id) REFERENCES employee(emp_id) DEFERRABLE INITIALLY IMMEDIATE
+  7  );
+
+Table created.
+
+SQL> 
+SQL> -- Autoincrement primary key
+SQL> -- If a value for the primary key is unspecified, it will be set to the next number in the sequence.
+SQL> CREATE SEQUENCE schedule_seq;
+
+Sequence created.
+
+SQL> CREATE TRIGGER schedule_trig
+  2  BEFORE INSERT ON schedule
+  3  FOR EACH ROW
+  4  BEGIN
+  5  	   SELECT schedule_seq.NEXTVAL
+  6  	   INTO :new.sche_id
+  7  	   FROM dual;
+  8  END;
+  9  /
+
+Trigger created.
+
+SQL> 
+SQL> INSERT ALL
+  2  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (1, 1, TO_DATE('2015-03-29 12:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-03-29 16:00', 'yyyy-mm-dd hh24:mi'))
+  3  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (2, 1, TO_DATE('2015-03-29 17:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-03-29 20:00', 'yyyy-mm-dd hh24:mi'))
+  4  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (3, 2, TO_DATE('2015-03-29 12:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-03-29 17:00', 'yyyy-mm-dd hh24:mi'))
+  5  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (4, 2, TO_DATE('2015-03-29 18:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-03-29 22:00', 'yyyy-mm-dd hh24:mi'))
+  6  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (5, 4, TO_DATE('2015-03-29 12:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-03-29 17:00', 'yyyy-mm-dd hh24:mi'))
+  7  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (6, 4, TO_DATE('2015-03-29 17:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-03-29 22:00', 'yyyy-mm-dd hh24:mi'))
+  8  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (7, 5, TO_DATE('2015-03-29 14:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-03-29 22:00', 'yyyy-mm-dd hh24:mi'))
+  9  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (8, 1, TO_DATE('2015-03-30 12:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-03-30 16:00', 'yyyy-mm-dd hh24:mi'))
+ 10  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (9, 1, TO_DATE('2015-03-30 17:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-03-30 20:00', 'yyyy-mm-dd hh24:mi'))
+ 11  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (10, 3, TO_DATE('2015-03-30 12:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-03-30 17:00', 'yyyy-mm-dd hh24:mi'))
+ 12  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (11, 3, TO_DATE('2015-03-30 18:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-03-30 22:00', 'yyyy-mm-dd hh24:mi'))
+ 13  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (12, 4, TO_DATE('2015-03-30 12:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-03-30 17:00', 'yyyy-mm-dd hh24:mi'))
+ 14  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (13, 4, TO_DATE('2015-03-30 17:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-03-30 22:00', 'yyyy-mm-dd hh24:mi'))
+ 15  INTO schedule(sche_id, emp_id, sche_start, sche_end) VALUES (14, 6, TO_DATE('2015-03-30 14:00', 'yyyy-mm-dd hh24:mi'), TO_DATE('2015-03-30 22:00', 'yyyy-mm-dd hh24:mi'))
+ 16  SELECT 1 FROM dual;
+
+14 rows created.
+
+SQL> @seed/vehicle
+SQL> CREATE TABLE vehicle(
+  2  	 veh_id INT CONSTRAINT veh_pk PRIMARY KEY DEFERRABLE INITIALLY IMMEDIATE,
+  3  	 emp_id INT CONSTRAINT veh_emp_id_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
+  4  	 veh_make VARCHAR(255) CONSTRAINT veh_make_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
+  5  	 veh_model VARCHAR(255) CONSTRAINT veh_model_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
+  6  	 veh_year SMALLINT CONSTRAINT veh_year_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
+  7  	 veh_color VARCHAR(255) CONSTRAINT veh_color_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
+  8  	 veh_lic_plt CHAR(10) CONSTRAINT veh_lic_plt_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
+  9  	 CONSTRAINT veh_emp_id_fk FOREIGN KEY (emp_id) REFERENCES employee(emp_id) DEFERRABLE INITIALLY IMMEDIATE
+ 10  );
+
+Table created.
+
+SQL> 
+SQL> -- Autoincrement primary key
+SQL> -- If a value for the primary key is unspecified, it will be set to the next number in the sequence.
+SQL> CREATE SEQUENCE vehicle_seq;
+
+Sequence created.
+
+SQL> CREATE TRIGGER vehicle_trig
+  2  BEFORE INSERT ON vehicle
+  3  FOR EACH ROW
+  4  BEGIN
+  5  	   SELECT vehicle_seq.NEXTVAL
+  6  	   INTO :new.veh_id
+  7  	   FROM dual;
+  8  END;
+  9  /
+
+Trigger created.
+
+SQL> 
+SQL> INSERT ALL
+  2  INTO vehicle(veh_id, emp_id, veh_make, veh_model, veh_year, veh_color, veh_lic_plt) VALUES (1, 1, 'Stutz', 'Blackhawk', 1971, 'Black', 'HHBL9')
+  3  INTO vehicle(veh_id, emp_id, veh_make, veh_model, veh_year, veh_color, veh_lic_plt) VALUES (2, 2, 'Cadillac', 'Fleetwood', 1955, 'Pink', 'LPN9')
+  4  INTO vehicle(veh_id, emp_id, veh_make, veh_model, veh_year, veh_color, veh_lic_plt) VALUES (3, 2, 'Ford', 'Thunderbird', 1967, 'Red', 'YANBAHD9')
+  5  INTO vehicle(veh_id, emp_id, veh_make, veh_model, veh_year, veh_color, veh_lic_plt) VALUES (4, 3, 'Isuzu', 'Rodeo', 1991, 'White', 'AAW392')
+  6  INTO vehicle(veh_id, emp_id, veh_make, veh_model, veh_year, veh_color, veh_lic_plt) VALUES (5, 5, 'GMC', 'Sierra', 2006, 'Black', 'CLL445')
+  7  SELECT 1 FROM dual;
+
+5 rows created.
+
+SQL> 
+SQL> 
+SQL> @seed/request
+SQL> CREATE TABLE request(
+  2  	 request_id INT CONSTRAINT request_pk PRIMARY KEY,
+  3  	 cus_loc_id INT CONSTRAINT request_cus_loc_id_nn_cnst NOT NULL,
+  4  	 --prc_request_add procedure adds the current logged in user to this column
+  5  	 dispatcher VARCHAR2(20),
+  6  	 driver_id INT,
+  7  	 create_time DATE CONSTRAINT request_create_time_nn_cnst NOT NULL,
+  8  	 dispatch_time DATE,
+  9  	 estim_pickup DATE,
+ 10  	 delivery_pickup DATE,
+ 11  	 delivery_complete DATE,
+ 12  	 CONSTRAINT cus_loc_id_fk FOREIGN KEY (cus_loc_id) REFERENCES customer_location(cus_loc_id),
+ 13  	 CONSTRAINT request_driver_fk FOREIGN KEY (driver_id) REFERENCES employee(emp_id)
+ 14  );
+
+Table created.
+
+SQL> 
+SQL> -- Autoincrement primary key
+SQL> -- If a value for the primary key is unspecified, it will be set to the next number in the sequence.
+SQL> CREATE SEQUENCE request_seq;
+
+Sequence created.
+
+SQL> CREATE TRIGGER request_trig
+  2  BEFORE INSERT ON request
+  3  FOR EACH ROW
+  4  BEGIN
+  5  	   SELECT request_seq.NEXTVAL
+  6  	   INTO :new.request_id
+  7  	   FROM dual;
+  8  END;
+  9  /
+
+Trigger created.
+
+SQL> 
+SQL> @seed/menu_item
+SQL> CREATE TABLE menu_item(
+  2  	 item_id INT CONSTRAINT menu_item_pk PRIMARY KEY DEFERRABLE INITIALLY IMMEDIATE,
+  3  	 res_id INT CONSTRAINT menu_item_res_id_nn_cnst NOT NULL,
+  4  	 item_name VARCHAR(30) CONSTRAINT menu_item_item_name_nn_cnst NOT NULL,
+  5  	 --added this line because we need prices to make sales right?
+  6  	 item_price NUMBER(9,2),
+  7  	 item_description VARCHAR(75),
+  8  	 CONSTRAINT menu_item_res_id_fk FOREIGN KEY (res_id) REFERENCES restaurant(res_id)
+  9  );
+
+Table created.
+
+SQL> 
+SQL> -- Autoincrement primary key
+SQL> -- If a value for the primary key is unspecified, it will be set to the next number in the sequence.
+SQL> CREATE SEQUENCE menu_item_seq;
+
+Sequence created.
+
+SQL> CREATE TRIGGER menu_item_trig
+  2  BEFORE INSERT ON menu_item
+  3  FOR EACH ROW
+  4  BEGIN
+  5  	   SELECT menu_item_seq.NEXTVAL
+  6  	   INTO :new.item_id
+  7  	   FROM dual;
+  8  END;
+  9  /
+
+Trigger created.
+
+SQL> 
+SQL> INSERT INTO menu_item (res_id, item_name, item_description, item_price)
+  2  VALUES (1, 'Love Me Tender', 'Seared beef tenderloin with sauteed mushrooms', 17.99);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO menu_item (res_id, item_name, item_description, item_price)
+  2  VALUES (1, 'Hunka Hunka Burnin'' Love',
+  3  	     'Sliced Rocky Mountain Oyster glazed with a tangy Habanero glaze', 12.99);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO menu_item (res_id, item_name, item_description, item_price)
+  2  VALUES (1, 'Hound Dog', 'Dachshund sausage', 5.50);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO menu_item (res_id, item_name, item_description, item_price)
+  2  VALUES (2, 'All Shook Up', '180 ounces of milk-shake, all flavors', 3.99);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO menu_item (res_id, item_name, item_description, item_price)
+  2  VALUES (2, 'Alright, Okay, You Win', '64 slices of bacon wrapped in...bacon', 29.99);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO menu_item (res_id, item_name, item_description, item_price)
+  2  VALUES (2, 'I''ll Never Know', 'Mystery meat-loaf', 11.95);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO menu_item (res_id, item_name, item_description, item_price)
+  2  VALUES (3, 'Slice of Heaven', 'Pecan Pumpkin Pie', 5.99);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO menu_item (res_id, item_name, item_description, item_price)
+  2  VALUES (3, 'Turducken Slammer', 'Perfect storm of the top 3 edible birds', 19.99);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO menu_item (res_id, item_name, item_description, item_price)
+  2  VALUES (3, 'Cannibal''s Clown Burger', 'Does this taste funny to you', 4.99);
+
+1 row created.
+
+SQL> @seed/request_item
+SQL> CREATE TABLE request_item(
+  2  	 item_id INT,
+  3  	 request_id INT,
+  4  	 quantity INT,
+  5  	 CONSTRAINT request_item_pk PRIMARY KEY (item_id, request_id),
+  6  	 CONSTRAINT request_item_item_id_fk FOREIGN KEY (item_id) REFERENCES menu_item(item_id),
+  7  	 CONSTRAINT request_item_request_id_fk FOREIGN KEY (request_id) REFERENCES request(request_id)
+  8  );
+
+Table created.
+
+SQL> 
+SQL> -------------------------------------------
+SQL> --Procedures
+SQL> -------------------------------------------
+SQL> -- Remove any procedures that were created and produce Request data
+SQL> --Request data uses procedures
+SQL> @procedures/prc_request_add
+SQL> /* Put Procedure definition here for when a request is made that calculates
+SQL> 	the total of the request based on what was requested and how much it costs.
+SQL> 	Example usage:
+SQL> 	     SQL> exec prc_request_add(1)
+SQL> 
+SQL> 	(adds a new request using the customer location id of '1' */
+SQL> 
+SQL> CREATE OR REPLACE PROCEDURE prc_request_add (customer_loc customer_location.cus_loc_id%type) IS
+  2  --create new request that we will have to use another procedure to add "request_items" to
+  3  current_user VARCHAR2(40);
+  4  location customer_location.cus_add_1%type;
+  5  
+  6  BEGIN
+  7  	 current_user := user; --gets current logged-on user
+  8  	 -- gets the address field and puts it into location variable
+  9  	 SELECT cus_add_1 INTO location
+ 10  	 FROM customer_location
+ 11  	 WHERE cus_loc_id = customer_loc;
+ 12  	 -- creates the new invoice with the current date/time (sysdate includes time as well as date)
+ 13  	 INSERT INTO request (cus_loc_id, dispatcher, create_time)
+ 14  	     VALUES (customer_loc, current_user, sysdate);
+ 15  	 dbms_output.put_line('New order request made by '||current_user||' to be delivered to '||location);
+ 16  END;
+ 17  /
+
+Procedure created.
+
+SQL> 
+SQL> @procedures/prc_req_item_add
+SQL> /* Procedure for adding a request_item to the request_item table
+SQL> 	Example usage:
+SQL> 	     SQL> exec prc_req_item_add(2)
+SQL> 	     (2 would be the item_id of the menu_item being added)
+SQL> */
+SQL> 
+SQL> CREATE OR REPLACE PROCEDURE prc_req_item_add (itemid menu_item.item_id%type, qty INT) IS
+  2  
+  3  itemname menu_item.item_name%type; --get item's name for the dbms output
+  4  
+  5  BEGIN
+  6  	 -- put item's name into the itemname variable
+  7  	 SELECT item_name INTO itemname
+  8  	 FROM menu_item
+  9  	 WHERE item_id = itemid;
+ 10  	 --add the item to the request_item table
+ 11  	 INSERT INTO request_item VALUES (itemid, request_seq.CURRVAL, qty);
+ 12  	 dbms_output.put_line('Inserted '||qty||' of item "'||itemname||'" to request '||request_seq.CURRVAL);
+ 13  END;
+ 14  /
+
+Procedure created.
+
+SQL> 
+SQL> @seed/create_requests
+SQL> EXECUTE prc_request_add(1);
+New order request made by MKG52 to be delivered to 21 Jump St.                  
+
+PL/SQL procedure successfully completed.
+
+SQL> EXECUTE prc_req_item_add(1, 1);
+Inserted 1 of item "Love Me Tender" to request 1                                
+
+PL/SQL procedure successfully completed.
+
+SQL> EXECUTE prc_req_item_add(3, 1);
+Inserted 1 of item "Hound Dog" to request 1                                     
+
+PL/SQL procedure successfully completed.
+
+SQL> UPDATE Request SET driver_id=1, create_time=TO_DATE('2015-03-29 12:00', 'yyyy-mm-dd hh24:mi'), dispatch_time=TO_DATE('2015-03-29 12:03', 'yyyy-mm-dd hh24:mi'), estim_pickup=TO_DATE('2015-03-29 12:30', 'yyyy-mm-dd hh24:mi'), delivery_pickup=TO_DATE('2015-03-29 12:31', 'yyyy-mm-dd hh24:mi'), delivery_complete=TO_DATE('2015-03-29 12:42', 'yyyy-mm-dd hh24:mi')
+  2  WHERE request_id=1;
+
+1 row updated.
+
+SQL> 
+SQL> EXECUTE prc_request_add(4);
+New order request made by MKG52 to be delivered to 564 W. Moore St.             
+
+PL/SQL procedure successfully completed.
+
+SQL> EXECUTE prc_req_item_add(5, 2);
+Inserted 2 of item "Alright, Okay, You Win" to request 2                        
+
+PL/SQL procedure successfully completed.
+
+SQL> EXECUTE prc_req_item_add(7, 1);
+Inserted 1 of item "Slice of Heaven" to request 2                               
+
+PL/SQL procedure successfully completed.
+
+SQL> UPDATE Request SET driver_id=1, create_time=TO_DATE('2015-03-29 13:00', 'yyyy-mm-dd hh24:mi'), dispatch_time=TO_DATE('2015-03-29 13:07', 'yyyy-mm-dd hh24:mi'), estim_pickup=TO_DATE('2015-03-29 13:30', 'yyyy-mm-dd hh24:mi'), delivery_pickup=TO_DATE('2015-03-29 13:31', 'yyyy-mm-dd hh24:mi'), delivery_complete=TO_DATE('2015-03-29 13:42', 'yyyy-mm-dd hh24:mi')
+  2  WHERE request_id=2;
+
+1 row updated.
+
+SQL> 
+SQL> EXECUTE prc_request_add(2);
+New order request made by MKG52 to be delivered to 11 N. Peace Ave.             
+
+PL/SQL procedure successfully completed.
+
+SQL> EXECUTE prc_req_item_add(2, 3);
+Inserted 3 of item "Hunka Hunka Burnin' Love" to request 3                      
+
+PL/SQL procedure successfully completed.
+
+SQL> UPDATE Request SET driver_id=2, create_time=TO_DATE('2015-03-29 13:10', 'yyyy-mm-dd hh24:mi'), dispatch_time=TO_DATE('2015-03-29 13:13', 'yyyy-mm-dd hh24:mi'), estim_pickup=TO_DATE('2015-03-29 13:35', 'yyyy-mm-dd hh24:mi'), delivery_pickup=TO_DATE('2015-03-29 13:34', 'yyyy-mm-dd hh24:mi'), delivery_complete=TO_DATE('2015-03-29 13:42', 'yyyy-mm-dd hh24:mi')
+  2  WHERE request_id=3;
+
+1 row updated.
+
+SQL> 
+SQL> EXECUTE prc_request_add(7);
+New order request made by MKG52 to be delivered to 555 Grey Dr.                 
+
+PL/SQL procedure successfully completed.
+
+SQL> EXECUTE prc_req_item_add(7, 1);
+Inserted 1 of item "Slice of Heaven" to request 4                               
+
+PL/SQL procedure successfully completed.
+
+SQL> EXECUTE prc_req_item_add(2, 3);
+Inserted 3 of item "Hunka Hunka Burnin' Love" to request 4                      
+
+PL/SQL procedure successfully completed.
+
+SQL> UPDATE Request SET driver_id=2, create_time=TO_DATE('2015-03-29 15:45', 'yyyy-mm-dd hh24:mi'), dispatch_time=TO_DATE('2015-03-29 15:49', 'yyyy-mm-dd hh24:mi'), estim_pickup=TO_DATE('2015-03-29 16:10', 'yyyy-mm-dd hh24:mi'), delivery_pickup=TO_DATE('2015-03-29 16:12', 'yyyy-mm-dd hh24:mi'), delivery_complete=TO_DATE('2015-03-29 16:23', 'yyyy-mm-dd hh24:mi')
+  2  WHERE request_id=4;
+
+1 row updated.
+
+SQL> 
+SQL> EXECUTE prc_request_add(1);
+New order request made by MKG52 to be delivered to 21 Jump St.                  
+
+PL/SQL procedure successfully completed.
+
+SQL> EXECUTE prc_req_item_add(1, 1);
+Inserted 1 of item "Love Me Tender" to request 5                                
+
+PL/SQL procedure successfully completed.
+
+SQL> UPDATE Request SET driver_id=3, create_time=TO_DATE('2015-03-30 12:25', 'yyyy-mm-dd hh24:mi'), dispatch_time=TO_DATE('2015-03-30 12:28', 'yyyy-mm-dd hh24:mi'), estim_pickup=TO_DATE('2015-03-30 12:40', 'yyyy-mm-dd hh24:mi'), delivery_pickup=TO_DATE('2015-03-30 12:38', 'yyyy-mm-dd hh24:mi'), delivery_complete=TO_DATE('2015-03-30 12:48', 'yyyy-mm-dd hh24:mi')
+  2  WHERE request_id=5;
+
+1 row updated.
+
+SQL> 
+SQL> EXECUTE prc_request_add(8);
+New order request made by MKG52 to be delivered to 7895 S. Chile Ln.            
+
+PL/SQL procedure successfully completed.
+
+SQL> EXECUTE prc_req_item_add(8, 2);
+Inserted 2 of item "Turducken Slammer" to request 6                             
+
+PL/SQL procedure successfully completed.
+
+SQL> EXECUTE prc_req_item_add(7, 2);
+Inserted 2 of item "Slice of Heaven" to request 6                               
+
+PL/SQL procedure successfully completed.
+
+SQL> EXECUTE prc_req_item_add(9, 4);
+Inserted 4 of item "Cannibal's Clown Burger" to request 6                       
+
+PL/SQL procedure successfully completed.
+
+SQL> UPDATE Request SET driver_id=1, create_time=TO_DATE('2015-03-30 14:55', 'yyyy-mm-dd hh24:mi'), dispatch_time=TO_DATE('2015-03-30 15:00', 'yyyy-mm-dd hh24:mi'), estim_pickup=TO_DATE('2015-03-30 15:15', 'yyyy-mm-dd hh24:mi'), delivery_pickup=TO_DATE('2015-03-30 15:17', 'yyyy-mm-dd hh24:mi'), delivery_complete=TO_DATE('2015-03-30 15:29', 'yyyy-mm-dd hh24:mi')
+  2  WHERE request_id=6;
+
+1 row updated.
+
+SQL> 
+SQL> EXECUTE prc_request_add(3);
+New order request made by MKG52 to be delivered to 2050 Huntington Dr.          
+
+PL/SQL procedure successfully completed.
+
+SQL> EXECUTE prc_req_item_add(4, 1);
+Inserted 1 of item "All Shook Up" to request 7                                  
+
+PL/SQL procedure successfully completed.
+
+SQL> EXECUTE prc_req_item_add(5, 3);
+Inserted 3 of item "Alright, Okay, You Win" to request 7                        
+
+PL/SQL procedure successfully completed.
+
+SQL> UPDATE Request SET driver_id=1, create_time=TO_DATE('2015-03-30 19:05', 'yyyy-mm-dd hh24:mi'), dispatch_time=TO_DATE('2015-03-30 19:07', 'yyyy-mm-dd hh24:mi'), estim_pickup=TO_DATE('2015-03-30 19:35', 'yyyy-mm-dd hh24:mi'), delivery_pickup=TO_DATE('2015-03-30 19:35', 'yyyy-mm-dd hh24:mi'), delivery_complete=TO_DATE('2015-03-30 19:41', 'yyyy-mm-dd hh24:mi')
+  2  WHERE request_id=7;
+
+1 row updated.
+
+SQL> 
+SQL> 
+SQL> ------------------------------------------
+SQL> --Functions
+SQL> -----------------------------------------
+SQL> @functions/get_order_total
+SQL> CREATE OR REPLACE FUNCTION get_order_total (req_id request.request_id%type)
+  2  RETURN number IS
+  3  	     output number := 0;
+  4  BEGIN
+  5  	     SELECT sum(cost) INTO output FROM customer_view
+  6  	     WHERE request_id = req_id;
+  7  	     RETURN output;
+  8  END get_order_total;
+  9  /
+
+Function created.
+
+SQL> 
+SQL> @functions/schedule_week
+SQL> -- Return this weeks schdule for the given employee id.
+SQL> CREATE OR REPLACE	FUNCTION schedule_week(acc_no IN NUMBER)
+  2  	 RETURN sys_refcursor
+  3  	 AS
+  4  	 l_rc sys_refcursor;
+  5  	 sunday Date;
+  6  	 saturday Date;
+  7  	 BEGIN
+  8  	     SELECT TRUNC(sysdate-1, 'IW') INTO sunday FROM dual;
+  9  	     SELECT TRUNC(sysdate+5, 'IW') INTO saturday FROM dual;
+ 10  	     OPEN l_rc FOR
+ 11  		 SELECT *
+ 12  		 FROM schedule_view
+ 13  		 WHERE TO_DATE(start_date, 'yyyy-mm-dd hh24:MI') BETWEEN sunday AND saturday AND emp_id = acc_no;
+ 14  		 --SELECT * FROM schedule_view WHERE START_DATE BETWEEN sunday AND saturday;
+ 15  	     RETURN l_rc;
+ 16  	 END schedule_week;
+ 17  /
+
+Function created.
+
+SQL> 
+SQL> 
+SQL> -------------------------------------------
+SQL> --Triggers
+SQL> ------------------------------------------
+SQL> @triggers/dispatch_time_auto
+SQL> CREATE TRIGGER dispatch_time_auto
+  2  BEFORE UPDATE OF driver_id ON Request
+  3  FOR EACH ROW
+  4  BEGIN
+  5  	     :new.dispatch_time := CURRENT_TIMESTAMP;
+  6  END dispatch_time_auto;
+  7  /
+
+Trigger created.
+
+SQL> 
+SQL> 
+SQL> -------------------------------------------
+SQL> --Views
+SQL> -------------------------------------------
+SQL> @views/schedule_view
+SQL> -- This view will display the employee names next to their schedule start/end times displayed in international date format
+SQL> -- yyyy-mm-dd HH:MM
+SQL> -- EMP_ID EMP_FNAME EMP_LNAME SCHE_STAR SCHE_END
+SQL> 
+SQL> -- Format columns to avoid wrapping.
+SQL> SET WRAP OFF
+SQL> SET LINESIZE 3000
+SQL> COLUMN emp_fname FORMAT A15
+SQL> COLUMN emp_lname FORMAT A15
+SQL> COLUMN emp_phone FORMAT A15
+SQL> COLUMN emp_email FORMAT A15
+SQL> 
+SQL> CREATE OR REPLACE VIEW schedule_view AS
+  2  	 SELECT emp_id, emp_fname, emp_lname, (TO_CHAR(sche_start, 'yyyy-mm-dd hh24:mi')) "START_DATE", TO_CHAR(sche_end, 'yyyy-mm-dd hh24:mi') "END_DATE"
+  3  	 FROM employee
+  4  	 LEFT OUTER JOIN schedule USING (emp_id)
+  5  	 ORDER BY emp_id, "START_DATE", "END_DATE";
+
+View created.
+
+SQL> @views/customer_view
+SQL> --This view will display the history of orders for a customer
+SQL> --It will display the request_id, date of order, restaurant name, and
+SQL> --all menu items from that order. This view can be used by customer
+SQL> --who wish to see the history of what, where, and when they have placed orders.
+SQL> 
+SQL> --It needs to have breaks added
+SQL> --BREAK ON request_id ON create_time ON res_name;
+SQL> --To show the order #, date, and restaurant on a single line with
+SQL> --multiple lines for the individual menu items
+SQL> 
+SQL> --usage:
+SQL> 
+SQL> -- select * from customer view where cus_id=<some customer id>
+SQL> 
+SQL> CREATE OR REPLACE VIEW customer_view AS
+  2  	     SELECT cus.cus_id, Request.request_id, Request.create_time, rest.res_name, menu.item_name, req_item.quantity, menu.item_price * req_item.quantity AS Cost
+  3  	     FROM Request JOIN Request_Item req_item ON Request.request_id = req_item.request_id
+  4  	     JOIN Menu_Item menu ON req_item.item_id = menu.item_id
+  5  	     JOIN Restaurant rest ON menu.res_id = rest.res_id
+  6  	     JOIN customer_location cus_loc ON cus_loc.cus_loc_id = request.cus_loc_id
+  7  	     JOIN customer cus ON cus.cus_id = cus_loc.cus_id
+  8  	     ORDER BY Request.request_id, rest.res_name;
+
+View created.
+
+SQL> @views/restaurant_view
+SQL> --View for restaurants to see how frequently menu items have been ordered
+SQL> --Calling on the view as is will show all restaurants
+SQL> --To show a single restaurant then a WHERE statement is added when view is called
+SQL> --SELECT * FROM restaurant_view WHERE res_id = [restaurant ID];
+SQL> 
+SQL> CREATE OR REPLACE VIEW restaurant_view AS
+  2  	     SELECT item_name, res_id, NVL(SUM(quantity),0) AS Times_Ordered
+  3  	     FROM Menu_Item A
+  4  	     FULL OUTER JOIN Request_Item B
+  5  	     ON A.item_id=B.item_id
+  6  	     GROUP BY res_id, item_name;
+
+View created.
+
+SQL> @views/total_delivery_time_view
+SQL> --view that dispalys the Request ID, date and time the request was dispatched
+SQL> --time the request was delivered, and total time in minutes it took to deliver the request
+SQL> --from dispatch to delivery.
+SQL> 
+SQL> CREATE OR REPLACE VIEW total_delivery_time_view AS
+  2  	     SELECT request_id, TO_CHAR(dispatch_time,'yyyy-mm-dd hh24:mi') AS DispatchTime, TO_CHAR(delivery_complete, 'hh24:mi') AS DeliveryTime,
+  3  	     (delivery_complete - dispatch_time)*24*60 AS TotalTime_Minutes
+  4  	     FROM Request;
+
+View created.
+
+SQL> 
+SQL> -------------------------------------------
+SQL> --Privileges
+SQL> -------------------------------------------
+SQL> GRANT ALL ON customer to mlh395;
+
+Grant succeeded.
+
+SQL> GRANT ALL ON customer_location to mlh395;
+
+Grant succeeded.
+
+SQL> GRANT ALL ON restaurant to mlh395;
+
+Grant succeeded.
+
+SQL> GRANT ALL ON employee to mlh395;
+
+Grant succeeded.
+
+SQL> GRANT ALL ON schedule to mlh395;
+
+Grant succeeded.
+
+SQL> GRANT ALL ON vehicle to mlh395;
+
+Grant succeeded.
+
+SQL> GRANT ALL ON request to mlh395;
+
+Grant succeeded.
+
+SQL> GRANT ALL ON menu_item to mlh395;
+
+Grant succeeded.
+
+SQL> GRANT ALL ON request_item to mlh395;
+
+Grant succeeded.
+
+SQL> 
+SQL> SPOOL OFF

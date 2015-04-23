@@ -3,9 +3,9 @@ CREATE TABLE restaurant(
     res_name VARCHAR(50) CONSTRAINT res_name_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
     res_add_1 VARCHAR(100) CONSTRAINT res_add_1_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
     res_add_2 VARCHAR(100),
-    res_zip VARCHAR(10) CONSTRAINT res_zip_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
-    res_phone VARCHAR(15) CONSTRAINT res_phone_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
-    res_instructions VARCHAR(100)
+    res_zip CHAR(5) CONSTRAINT res_zip_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
+    res_phone CHAR(10) CONSTRAINT res_phone_nn_cnst NOT NULL DEFERRABLE INITIALLY IMMEDIATE,
+    res_instructions VARCHAR(255)
 );
 
 -- Autoincrement primary key
