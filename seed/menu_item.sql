@@ -22,12 +22,12 @@ END;
 /
 
 INSERT INTO menu_item (res_id, item_name, item_description, item_price)
+VALUES (1, 'Love Me Tender', 'Seared beef tenderloin with sauteed mushrooms', 17.99);
+
+INSERT INTO menu_item (res_id, item_name, item_description, item_price)
 VALUES (1, 'Hunka Hunka Burnin'' Love', 
         'Sliced Rocky Mountain Oyster glazed with a tangy Habanero glaze', 12.99);
 		
-INSERT INTO menu_item (res_id, item_name, item_description, item_price)
-VALUES (1, 'Love Me Tender', 'Seared beef tenderloin with sauteed mushrooms', 17.99);
-
 INSERT INTO menu_item (res_id, item_name, item_description, item_price)
 VALUES (1, 'Hound Dog', 'Dachshund sausage', 5.50);
 

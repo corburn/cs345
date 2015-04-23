@@ -11,7 +11,7 @@ COLUMN emp_phone FORMAT A15
 COLUMN emp_email FORMAT A15
 
 CREATE OR REPLACE VIEW schedule_view AS
-    SELECT emp_id, emp_fname, emp_lname, (TO_CHAR(sche_start, 'yyyy-mm-dd hh24:mi')) "START", TO_CHAR(sche_end, 'yyyy-mm-dd hh24:mi') "END"
+    SELECT emp_id, emp_fname, emp_lname, (TO_CHAR(sche_start, 'yyyy-mm-dd hh24:mi')) "START_DATE", TO_CHAR(sche_end, 'yyyy-mm-dd hh24:mi') "END_DATE"
     FROM employee
     LEFT OUTER JOIN schedule USING (emp_id)
-    ORDER BY emp_id, "START", "END";
+    ORDER BY emp_id, "START_DATE", "END_DATE";
