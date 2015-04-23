@@ -23,7 +23,7 @@ WHERE request_id=4;
 
 EXECUTE prc_request_add(1);
 EXECUTE prc_req_item_add(1, 1);
-UPDATE Request SET driver_id=3, create_time=TO_DATE('2015-03-30 12:25', 'yyyy-mm-dd hh24:mi'), dispatch_time=TO_DATE('2015-03-30 12:28', 'yyyy-mm-dd hh24:mi'), estim_pickup=TO_DATE('2015-03-30 12:40', 'yyyy-mm-dd hh24:mi'), delivery_pickup=TO_DATE('2015-03-30 12:38', 'yyyy-mm-dd hh24:mi'), delivery_complete=TO_DATE('2015-03-30 13:48', 'yyyy-mm-dd hh24:mi')
+UPDATE Request SET driver_id=3, create_time=TO_DATE('2015-03-30 12:25', 'yyyy-mm-dd hh24:mi'), dispatch_time=TO_DATE('2015-03-30 12:28', 'yyyy-mm-dd hh24:mi'), estim_pickup=TO_DATE('2015-03-30 12:40', 'yyyy-mm-dd hh24:mi'), delivery_pickup=TO_DATE('2015-03-30 12:38', 'yyyy-mm-dd hh24:mi'), delivery_complete=TO_DATE('2015-03-30 12:48', 'yyyy-mm-dd hh24:mi')
 WHERE request_id=5;
 
 EXECUTE prc_request_add(8);
