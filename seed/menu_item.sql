@@ -3,7 +3,7 @@ CREATE TABLE menu_item(
     res_id INT CONSTRAINT menu_item_res_id_nn_cnst NOT NULL,
     item_name VARCHAR(30) CONSTRAINT menu_item_item_name_nn_cnst NOT NULL,
     --added this line because we need prices to make sales right?
-    item_price NUMBER(9,2),
+    item_price NUMBER(9,2) CONSTRAINT menu_item_item_nn_cnst NOT NULL,
     item_description VARCHAR(75),
     CONSTRAINT menu_item_res_id_fk FOREIGN KEY (res_id) REFERENCES restaurant(res_id)
 );
